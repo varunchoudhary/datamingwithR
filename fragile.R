@@ -39,12 +39,12 @@ DF <- data.frame(
   ei = EI
 )
 
-write.csv(DF,"fragile.csv",row.names = FALSE)
+write.csv(DF,"Documents/ff/r/fragile.csv",row.names = FALSE)
 
 data1 <- read.csv("fragile.csv")
 print(data1)
 
-rules <- apriori(data1,parameter = list(supp = 0.01,conf = 0.8,minlen=3),
+rules <- apriori(data1,parameter = list(supp = 0.01,conf = 0.75,minlen=10),
                  appearance = list(default="lhs",rhs="tot=ALERT"),
                  control = list(verbose=F))
 options(digits=2)
